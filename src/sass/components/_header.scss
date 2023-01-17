@@ -1,0 +1,17 @@
+/** @format */
+
+.navbar {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 7rem;
+  text-transform: uppercase;
+  &__logo {
+    width: 30rem;
+  }
+  &__cart {
+    width: 10rem;
+  }
+}

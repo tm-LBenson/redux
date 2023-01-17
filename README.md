@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+<!-- @format -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project: Online Storefront Lab 36d49
 
-## Available Scripts
+[Deployed at Netlify](https://luminous-torte-257d86.netlify.app/)
 
-In the project directory, you can run:
+Our goal is to build an online storefront application using React. This application will allow users to browse and purchase products from multiple categories.
 
-### `npm start`
+## Phase 1 Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In this first phase, our goal is to set up the basic scaffolding of the application with initial styling and basic behaviors. This initial build will set up the file structure and state management so that we can progressively build this application in a scalable manner.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The following user/developer stories detail the major functionality for this phase of the project:
 
-### `npm test`
+As a user, I expect to see a list of available product categories in the store so that I can easily browse products.
+As a user, I want to choose a category and see a list of all available products matching that category.
+As a user, I want a clean, easy-to-use user interface so that I can shop the online store with confidence.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technical Requirements / Notes
 
-### `npm run build`
+![Screenshot from 2023-01-17 00-43-09](https://user-images.githubusercontent.com/105423307/212820614-6262d6e0-102b-4156-b227-fbdeb03c33a1.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create a visually appealing site using Material UI.
+Use a Redux Store to manage the state of categories and items in the store.
+Display a list of categories from state.
+When the user selects (clicks on) a category:
+Identify that category as selected (change of class/display).
+Show a list of products associated with the category.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Application Architecture
 
-### `npm run eject`
+Create the Virtual Store application using create-react-app.
+Install Material UI as a dependency.
+Write an App component that serves as the container for all sub-components of this application.
+A `<Header>` component which shows the name of your virtual store.
+A `<Footer>` component which shows your copyright and contact information.
+A `<Categories>` component:
+Shows a list of all categories.
+Dispatches an action when one is clicked to “activate” it.
+A `<Products>` component:
+Displays a list of products associated with the selected category.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Notes on constructing the Redux Store
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Categories
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+State should contain a list of categories as well as the active category.
+Each category should have a normalized name, display name, and a description.
+Create an action that will trigger the reducer to change the active category.
+Update the active category in the reducer when this action is dispatched.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Products
 
-## Learn More
+State should be a list of all products.
+Each product should have a category association, name, description, price, and inventory count.
+Create an action that will trigger when the active category is changed.
+Create a reducer that will filter the products list based on the active category.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Active Category
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+State should store active category.
+Other components (products, etc.) might need to reference this.
 
-### Code Splitting
+## Checklist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [x] Create visually appealing site using Material UI.
+- [x] Implement Redux to manage state of categories and items in the store.
+- [x] Display a list of categories from state.
+- [x] Identify selected category and change class/display when clicked on.
+- [x] Show a list of products associated with the selected category.
+- [x] Create action to trigger reducer to change active category.
+- [x] Update active category in the reducer when action is dispatched.
+- [x] Create action to trigger when active category is changed.
+- [x] Create a reducer to filter products list based on active category.
+- [x] Store active category in state.

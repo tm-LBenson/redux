@@ -1,0 +1,9 @@
+/** @format */
+
+.categories {
+  margin-left: 2rem;
+  display: flex;
+  li:not(:last-child) {
+    border-right: 1px rgb(197, 184, 184) solid;
+  }
+}
