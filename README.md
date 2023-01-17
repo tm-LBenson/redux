@@ -16,6 +16,9 @@ As a user, I want a clean, easy-to-use user interface so that I can shop the onl
 
 ## Technical Requirements / Notes
 
+![Screenshot from 2023-01-17 00-43-09](https://user-images.githubusercontent.com/105423307/212820614-6262d6e0-102b-4156-b227-fbdeb03c33a1.png)
+
+
 Create a visually appealing site using Material UI.
 Use a Redux Store to manage the state of categories and items in the store.
 Display a list of categories from state.
