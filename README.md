@@ -2,6 +2,8 @@
 
 # Project: Online Storefront Lab 36d49
 
+[Deployed at Netlify](https://luminous-torte-257d86.netlify.app/)
+
 Our goal is to build an online storefront application using React. This application will allow users to browse and purchase products from multiple categories.
 
 ## Phase 1 Requirements
