@@ -1,30 +1,29 @@
 /** @format */
 
+import { ListItemButton } from '@mui/material';
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeCategory } from '../store/activeCategoryReducer';
-
 function Categories({ categories, changeCategory }) {
-  console.log(categories.activeCategory);
   return (
     <>
       <div>Browse our Categories</div>
       <div>
         <ul>
-          <li
-            onClick={() => {
-              changeCategory('ELECTRONICS');
-            }}
-          >
-            ELECTRONICS
-          </li>
-          <li
-            onClick={() => {
-              changeCategory('FOOD');
-            }}
-          >
-            FOOD
-          </li>
+          {categories.categories.map((item, idx) => (
+            <li
+              onClick={() => changeCategory(item.name.toUpperCase())}
+              key={item.displayName + idx}
+            >
+              <ListItemButton
+                underline="none"
+                component="button"
+                variant="body2"
+              >
+                {item.displayName}
+              </ListItemButton>
+            </li>
+          ))}
         </ul>
       </div>
     </>
