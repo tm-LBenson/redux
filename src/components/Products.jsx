@@ -1,6 +1,6 @@
 /** @format */
 
-import { Card } from '@mui/material';
+import { Card, Grid, ListItem } from '@mui/material';
 import React from 'react';
 import { connect } from 'react-redux';
 function Products({ products, activeCategory }) {
@@ -8,12 +8,33 @@ function Products({ products, activeCategory }) {
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
   return (
-    <ul>
-      {activeProducts.map((item, idx) => (
-       <li key={idx}>  <Card variant="outlined">{item.name}</Card></li>
-       
-      ))}
-    </ul>
+    <>
+      <main className="main">
+        <h1>{activeCategory.activeCategory}</h1>
+        {activeCategory.activeCategory && (
+          <h4>Category Description Goes Here</h4>
+        )}
+        <ul className="products">
+          <Grid
+            container
+            rowSpacing="1"
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
+            {activeProducts.map((item, idx) => (
+              <Grid
+                key={idx}
+                item
+                xs={6}
+              >
+                <Card variant="outlined">
+                  <ListItem>{item.name}</ListItem>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </ul>
+      </main>
+    </>
   );
 }
 

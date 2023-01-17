@@ -6,27 +6,24 @@ import { connect } from 'react-redux';
 import { changeCategory } from '../store/activeCategoryReducer';
 function Categories({ categories, changeCategory }) {
   return (
-    <>
-      <div>Browse our Categories</div>
+    <nav>
+      <h3>Browse our Categories</h3>
       <div>
-        <ul>
+        <ul className="categories">
           {categories.categories.map((item, idx) => (
             <li
+              className="categories__item"
               onClick={() => changeCategory(item.name.toUpperCase())}
               key={item.displayName + idx}
             >
-              <ListItemButton
-                underline="none"
-                component="button"
-                variant="body2"
-              >
+              <ListItemButton underline="none">
                 {item.displayName}
               </ListItemButton>
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </nav>
   );
 }
 

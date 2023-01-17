@@ -1,6 +1,6 @@
 /** @format */
 
-import { Card } from '@mui/material';
+import { Card, ListItemButton } from '@mui/material';
 import React from 'react';
 
 export default function Header() {
@@ -8,8 +8,14 @@ export default function Header() {
     <header>
       <nav>
         <Card className="navbar">
-          <div className="navbar__logo">Benson's Store</div>
-          <div className="navbar__cart">Cart (0)</div>
+          <div className="navbar__logo">
+            <ListItemButton data-testid="test-logo">
+              Benson's Store
+            </ListItemButton>
+          </div>
+          <div className="navbar__cart">
+            <ListItemButton data-testid="test-cart">Cart (0)</ListItemButton>
+          </div>
         </Card>
       </nav>
     </header>

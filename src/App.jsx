@@ -4,7 +4,7 @@ import Categories from './components/Categories';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Products from './components/Products';
-import store from './store/store';
+import './sass/main.scss';
 function App() {
   return (
     <>

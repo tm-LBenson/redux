@@ -1,0 +1,27 @@
+/** @format */
+
+.products {
+  height: 80vh;
+  width: 60%;
+  margin: auto;
+  li {
+    list-style: none;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+h1{
+  margin-bottom: 4rem;
+}
+
+h4{
+  margin-bottom: 6rem;
+}
+
+}
+
