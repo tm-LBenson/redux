@@ -2,10 +2,10 @@
 
 import { legacy_createStore as createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from '@redux-devtools/extension';
-import categoriesReducer from './categoriesReducer';
+import activeCategoriesReducer from './activeCategoryReducer';
 
 let reducers = combineReducers({
-  categories: categoriesReducer,
+  categories: activeCategoriesReducer,
 });
 
 export default function store() {

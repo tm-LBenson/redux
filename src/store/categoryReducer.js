@@ -1,21 +1,29 @@
 /** @format */
 
 const initialState = {
-  categories: [],
-  activeCategory: null,
+  categories: [
+    {}
+  ],
 };
 
 const categoriesReducer = (state = initialState, action) => {
-  const { type, category } = action;
+  const { type, item } = action;
   switch (type) {
-    case 'CHANGE_ACTIVE_CATEGORY':
+    case 'ADD_CART':
       return {
         ...state,
-        activeCategory: category,
+        cart: item,
       };
     default:
       return state;
   }
+};
+
+export const categoriesAction = (action) => {
+  return {
+    type: 'ACTION',
+    action,
+  };
 };
 
 export default categoriesReducer;
