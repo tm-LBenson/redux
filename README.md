@@ -2,6 +2,8 @@
 
 # Project: Online Storefront Lab 37d49
 
+[Deployment on Netlify](https://gleeful-bavarois-d1325b.netlify.app/)
+
 # Technical Requirements / Notes
 
 Today's goal is to continue to develop the online storefront application using React, Material UI and Redux. The application should have a Cart indicator in the header and a new Cart component to show the items in the user's cart. Additionally, the application should allow users to add products to their cart, and update the number of items in the cart and in stock when a product is added.
