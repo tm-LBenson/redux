@@ -1,12 +1,20 @@
 /** @format */
 
-import { Card, Grid, ListItem } from '@mui/material';
+import { Card, CardMedia, Grid, ListItem, ListItemButton } from '@mui/material';
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import image from '../images/placeholder.jpg';
+import { updateCart } from '../store/cartReducer';
+
 function Products({ products, activeCategory }) {
+  const dispatch = useDispatch();
   const activeProducts = products.products.filter(
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
+
+  function handleAddItem(name) {
+    dispatch(updateCart('ADD_TO_CART', name));
+  }
   return (
     <>
       <main className="main">
@@ -17,18 +25,41 @@ function Products({ products, activeCategory }) {
         <ul className="products">
           <Grid
             container
-            rowSpacing="1"
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            rowSpacing="30"
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             {activeProducts.map((item, idx) => (
               <Grid
+                width="100"
                 key={idx}
                 item
                 xs={6}
               >
-                <Card variant="outlined">
-                  <ListItem>{item.name}</ListItem>
-                </Card>
+                <div className="products__items">
+                  <Card variant="outlined">
+                    <CardMedia
+                      component="img"
+                      alt="item.name"
+                      height="180"
+                      image={image}
+                    />
+                    <ListItem>{item.name}</ListItem>
+                    <div className="products__links">
+                      <ListItemButton
+                        onClick={() => handleAddItem(item.name)}
+                        underline="none"
+                      >
+                        ADD TO CART
+                      </ListItemButton>
+                      <ListItemButton underline="none">
+                        VIEW DETAILS
+                      </ListItemButton>
+                    </div>
+                  </Card>
+                </div>
               </Grid>
             ))}
           </Grid>
