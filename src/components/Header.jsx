@@ -2,6 +2,7 @@
 
 import { Card, ListItemButton } from '@mui/material';
 import React from 'react';
+import SimpleCart from './SimpleCart';
 
 export default function Header() {
   return (
@@ -13,9 +14,7 @@ export default function Header() {
               Benson's Store
             </ListItemButton>
           </div>
-          <div className="navbar__cart">
-            <ListItemButton data-testid="test-cart">Cart (0)</ListItemButton>
-          </div>
+          <SimpleCart />
         </Card>
       </nav>
     </header>
