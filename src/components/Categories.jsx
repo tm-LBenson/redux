@@ -5,20 +5,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeCategory } from '../store/activeCategoryReducer';
 function Categories({ categories, changeCategory }) {
+  console.log(categories);
   return (
     <nav>
       <h3>Browse our Categories</h3>
       <div>
         <ul className="categories">
-          {categories.categories.map((item, idx) => (
+          {categories.map((item, idx) => (
             <li
               className="categories__item"
               onClick={() => changeCategory(item.name.toUpperCase())}
-              key={item.displayName + idx}
+              key={item.name + idx}
             >
-              <ListItemButton underline="none">
-                {item.displayName}
-              </ListItemButton>
+              <ListItemButton underline="none">{item.name}</ListItemButton>
             </li>
           ))}
         </ul>
