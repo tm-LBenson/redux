@@ -1,14 +1,23 @@
 /** @format */
 
-import { Card, CardMedia, Grid, ListItem, ListItemButton } from '@mui/material';
-import React from 'react';
+
+import { Card, CardMedia, Grid, ListItem } from '@mui/material';
+import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import image from '../images/placeholder.jpg';
-import { updateCart } from '../store/cartReducer';
-
+import { getCategories } from '../store/middleware/categories';
+import { getProducts } from '../store/middleware/products';
 function Products({ products, activeCategory }) {
   const dispatch = useDispatch();
-  const activeProducts = products.products.filter(
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getProducts());
+ 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const activeProducts = products.filter(
+
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
 
