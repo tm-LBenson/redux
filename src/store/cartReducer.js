@@ -14,11 +14,7 @@ function cartReducer(state = initialState, action) {
       if (state.cart.includes(item)) {
         return { ...state };
       }
-      item && state.cart.push(item);
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      return { cart: [...state['cart'], item], count: state.count + 1 };
     case 'REMOVE_FROM_CART':
       const updated = state.cart.filter((cartItem) => cartItem !== item);
       return {
