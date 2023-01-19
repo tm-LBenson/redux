@@ -1,10 +1,11 @@
 /** @format */
 
 
-import { Card, CardMedia, Grid, ListItem } from '@mui/material';
+import { Card, CardMedia, Grid, ListItem, ListItemButton } from '@mui/material';
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import image from '../images/placeholder.jpg';
+import { updateCart } from '../store/cartReducer';
 import { getCategories } from '../store/middleware/categories';
 import { getProducts } from '../store/middleware/products';
 function Products({ products, activeCategory }) {
