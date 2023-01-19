@@ -1,6 +1,5 @@
 /** @format */
 
-
 import { Card, CardMedia, Grid, ListItem, ListItemButton } from '@mui/material';
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
@@ -8,22 +7,24 @@ import image from '../images/placeholder.jpg';
 import { updateCart } from '../store/cartReducer';
 import { getCategories } from '../store/middleware/categories';
 import { getProducts } from '../store/middleware/products';
+import { updateProdState } from '../store/productsReducer';
 function Products({ products, activeCategory }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getProducts());
- 
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const activeProducts = products.filter(
-
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
 
-  function handleAddItem(name) {
+  function handleAddItem(item) {
+    const { name } = item;
     dispatch(updateCart('ADD_TO_CART', name));
+    dispatch(updateProdState('INC', item));
   }
   return (
     <>
@@ -59,7 +60,7 @@ function Products({ products, activeCategory }) {
                     <ListItem>{item.name}</ListItem>
                     <div className="products__links">
                       <ListItemButton
-                        onClick={() => handleAddItem(item.name)}
+                        onClick={() => handleAddItem(item)}
                         underline="none"
                       >
                         ADD TO CART
