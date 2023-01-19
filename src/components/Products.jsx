@@ -7,7 +7,8 @@ import image from '../images/placeholder.jpg';
 import { updateCart } from '../store/cartReducer';
 import { getCategories } from '../store/middleware/categories';
 import { getProducts } from '../store/middleware/products';
-import { updateProdState } from '../store/productsReducer';
+import { updateProducts } from '../store/middleware/updateInventory';
+
 function Products({ products, activeCategory }) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,7 +25,7 @@ function Products({ products, activeCategory }) {
   function handleAddItem(item) {
     const { name } = item;
     dispatch(updateCart('ADD_TO_CART', name));
-    dispatch(updateProdState('INC', item));
+    dispatch(updateProducts('DEC', item));
   }
   return (
     <>

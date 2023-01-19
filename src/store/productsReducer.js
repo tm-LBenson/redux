@@ -9,7 +9,7 @@ const productsReducer = (state = initialState, action) => {
       console.log(data);
       return data;
     case 'UPDATE_PRODUCTS':
-      return [...state, data];
+      return [...state];
     default:
       return state;
   }
