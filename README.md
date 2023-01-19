@@ -1,10 +1,40 @@
 <!-- @format -->
 
-# Project: Online Storefront Lab 37d49
+# Project: Online Storefront Lab 38d49
+
+[Deployment on Netlify](https://magnificent-naiad-9a3cf5.netlify.app)
+
+# Technical Requirements / Notes
+
+![image](https://user-images.githubusercontent.com/105423307/213348623-f960f073-a149-40c9-8021-8500ef712d5c.png)
+
+
+In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
+
+The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements:
+
+As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock.
+As a user, I want to know that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it.
+And as developers, here are the high level development tasks that address the above end user requirements and workflow:
+
+Continue to use Material UI Components for layout and styling.
+Load the category and product list from a remote API on page load.
+Update the product quantity in stock when adding an item to the cart.
+Persist the cart data to the API when an item is added or removed.
+
+## Checklist
+
+- [x] Connect to a live API to retrieve and update product and category data
+- [x] Update the product quantity in stock when adding an item to the cart
+- [x] Persist the cart data to the API when an item is added or removed
+- [x] Implement any necessary error handling for API calls
+- [x] Test the application with the live API to ensure proper functionality
+
+## Project: Online Storefront Lab 37d49
 
 [Deployment on Netlify](https://gleeful-bavarois-d1325b.netlify.app/)
 
-# Technical Requirements / Notes
+## Technical Requirements / Notes
 
 Today's goal is to continue to develop the online storefront application using React, Material UI and Redux. The application should have a Cart indicator in the header and a new Cart component to show the items in the user's cart. Additionally, the application should allow users to add products to their cart, and update the number of items in the cart and in stock when a product is added.
 
