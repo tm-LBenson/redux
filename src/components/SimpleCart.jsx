@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCart } from '../store/cartReducer';
 import { showCart } from '../store/cartReducer';
+import { updateProducts } from '../store/middleware/updateInventory';
 export default function SimpleCart() {
   const { count, show, cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function SimpleCart() {
 
   const handleClose = (item) => {
     dispatch(updateCart('REMOVE_FROM_CART', item));
+    dispatch(updateProducts('INC', item));
   };
   return (
     <>
