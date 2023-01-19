@@ -1,30 +1,24 @@
 /** @format */
 
-const initialState = {
-  categories: [
-    { name: 'electronics', displayName: 'Electronics' },
-    { name: 'food', displayName: 'Food' },
-    { name: 'clothing', displayName: 'Clothing' },
-  ],
-};
+const initialState = [];
 
 const categoriesReducer = (state = initialState, action) => {
-  const { type, item } = action;
+  const { type, data } = action;
+
   switch (type) {
-    case 'ACTION':
-      return {
-        ...state,
-        task: item,
-      };
+    case 'SET_CATEGORIES':
+      return [...data];
+    case 'GET_CATEGORIES':
+      return [...state, data];
     default:
       return state;
   }
 };
 
-export const categoriesAction = (action) => {
+export const setCategories = (data, type) => {
   return {
-    type: 'ACTION',
-    action,
+    type,
+    data,
   };
 };
 
