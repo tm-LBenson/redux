@@ -1,5 +1,6 @@
 /** @format */
 
+
 import { Card, CardMedia, Grid, ListItem } from '@mui/material';
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
@@ -16,8 +17,13 @@ function Products({ products, activeCategory }) {
   }, []);
 
   const activeProducts = products.filter(
+
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
+
+  function handleAddItem(name) {
+    dispatch(updateCart('ADD_TO_CART', name));
+  }
   return (
     <>
       <main className="main">
@@ -50,6 +56,17 @@ function Products({ products, activeCategory }) {
                       image={image}
                     />
                     <ListItem>{item.name}</ListItem>
+                    <div className="products__links">
+                      <ListItemButton
+                        onClick={() => handleAddItem(item.name)}
+                        underline="none"
+                      >
+                        ADD TO CART
+                      </ListItemButton>
+                      <ListItemButton underline="none">
+                        VIEW DETAILS
+                      </ListItemButton>
+                    </div>
                   </Card>
                 </div>
               </Grid>

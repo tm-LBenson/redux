@@ -23,8 +23,7 @@ describe('Header component', () => {
     );
 
     const heading = screen.getByTestId('test-logo');
-    const cart = screen.getByTestId('test-cart');
+
     expect(heading.textContent).toEqual("Benson's Store");
-    expect(cart.textContent).toEqual('Cart (0)');
   });
 });

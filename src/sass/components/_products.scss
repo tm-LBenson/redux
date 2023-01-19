@@ -2,10 +2,21 @@
 
 .products {
   height: 80vh;
-  width: 30%;
+
   margin: auto;
   li {
     list-style: none;
+  }
+  &__links {
+    color: blue;
+    margin-top: 3rem;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 24rem;
+    display: flex;
+    font-size: 1.2rem;
+   
   }
 }
 

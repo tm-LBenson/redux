@@ -11,10 +11,14 @@ import categoriesReducer from './categoryReducer';
 import productsReducer from './productsReducer';
 import thunk from 'redux-thunk';
 
+
+import cartReducer from './cartReducer';
+
 let reducers = combineReducers({
   activeCategory: activeCategoriesReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  cart: cartReducer,
 });
 
 export default function store() {
