@@ -6,6 +6,9 @@
 
 # Technical Requirements / Notes
 
+![image](https://user-images.githubusercontent.com/105423307/213348623-f960f073-a149-40c9-8021-8500ef712d5c.png)
+
+
 In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
 
 The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements:
