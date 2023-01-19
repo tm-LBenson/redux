@@ -6,7 +6,7 @@ const productsReducer = (state = initialState, action) => {
   const { type, data } = action;
   switch (type) {
     case 'SET_PRODUCTS':
-      console.log(data);
+ 
       return data;
     case 'UPDATE_PRODUCTS':
       return [...state];

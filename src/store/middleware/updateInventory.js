@@ -15,6 +15,6 @@ export const updateProducts = (action, product) => async (dispatch) => {
     `https://api-js401.herokuapp.com/api/v1/products/${_id}`,
     body,
   );
-  console.log(updated);
+
   dispatch(updateProdState(updated.data, 'UPDATE_PRODUCTS'));
 };

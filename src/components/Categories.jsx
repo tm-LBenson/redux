@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeCategory } from '../store/activeCategoryReducer';
 function Categories({ categories, changeCategory }) {
-  console.log(categories);
+
   return (
     <nav>
       <h3>Browse our Categories</h3>
