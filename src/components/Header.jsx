@@ -2,6 +2,7 @@
 
 import { Card, ListItemButton } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SimpleCart from './SimpleCart';
 
 export default function Header() {
@@ -11,9 +12,10 @@ export default function Header() {
         <Card className="navbar">
           <div className="navbar__logo">
             <ListItemButton data-testid="test-logo">
-              Benson's Store
+              <Link to="/">Benson's Store</Link>
             </ListItemButton>
           </div>
+
           <SimpleCart />
         </Card>
       </nav>

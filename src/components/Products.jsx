@@ -2,29 +2,41 @@
 
 import { Card, CardMedia, Grid, ListItem, ListItemButton } from '@mui/material';
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
-import image from '../images/placeholder.jpg';
-import { updateCart } from '../store/cartReducer';
-import { getCategories } from '../store/middleware/categories';
-import { getProducts } from '../store/middleware/products';
-import { updateProducts } from '../store/middleware/updateInventory';
 
-function Products({ products, activeCategory }) {
+import image from '../images/placeholder.jpg';
+import { addToCart, showOrHide } from '../store/cartSlice';
+import { getCategories } from '../store/middleware/categories';
+import { updateProducts } from '../store/middleware/updateInventory';
+import { getProducts } from '../store/middleware/products';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+function Products() {
+  const { count, products, activeCategory } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getCategories());
     dispatch(getProducts());
+    dispatch(getCategories());
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const activeProducts = products.filter(
+  useEffect(() => {
+    if (count === 0) {
+      dispatch(showOrHide(false));
+    } else if (count > 0) {
+      dispatch(showOrHide(true));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
+
+  const activeProducts = products.products.filter(
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
 
   function handleAddItem(item) {
-    const { name } = item;
-    dispatch(updateCart('ADD_TO_CART', name));
+    dispatch(addToCart(item));
     dispatch(updateProducts('DEC', item));
   }
   return (
@@ -67,7 +79,7 @@ function Products({ products, activeCategory }) {
                         ADD TO CART
                       </ListItemButton>
                       <ListItemButton underline="none">
-                        VIEW DETAILS
+                        <Link to={item._id}>VIEW DETAILS</Link>
                       </ListItemButton>
                     </div>
                   </Card>
@@ -81,11 +93,4 @@ function Products({ products, activeCategory }) {
   );
 }
 
-const mapStateToProps = ({ products, activeCategory }) => {
-  return {
-    products,
-    activeCategory,
-  };
-};
-
-export default connect(mapStateToProps)(Products);
+export default Products;

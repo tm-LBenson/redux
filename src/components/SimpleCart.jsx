@@ -1,43 +1,47 @@
 /** @format */
 
-import { Link, ListItemButton, Paper } from '@mui/material';
+import { ListItemButton, Paper } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCart } from '../store/cartReducer';
-import { showCart } from '../store/cartReducer';
+import { Link } from 'react-router-dom';
+import { removeFromCart, showOrHide } from '../store/cartSlice';
+
 import { updateProducts } from '../store/middleware/updateInventory';
 export default function SimpleCart() {
-  const { count, show, cart } = useSelector((state) => state.cart);
+  const { count, cart, show } = useSelector((state) => state.cart);
+  console.log(cart);
   const dispatch = useDispatch();
   useEffect(() => {
     if (count === 0) {
-      dispatch(showCart('SHOW_OR_HIDE', false));
+      dispatch(showOrHide(false));
     } else if (count > 0) {
-      dispatch(showCart('SHOW_OR_HIDE', true));
+      dispatch(showOrHide(true));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   const handleClose = (item) => {
-    dispatch(updateCart('REMOVE_FROM_CART', item));
+    dispatch(removeFromCart(item));
     dispatch(updateProducts('INC', item));
   };
   return (
     <>
       <div className="navbar__cart">
-        <ListItemButton data-testid="test-cart">Cart ({count})</ListItemButton>
+        <ListItemButton data-testid="test-cart">
+          <Link to="cart">Cart ({count})</Link>
+        </ListItemButton>
       </div>
       {count && show ? (
         <div className="cart">
           <Paper className="cart__items">
             <ul>
-              <li>item</li>
-              {cart.map((item) => (
+              <li>Cart</li>
+              {cart.map((item, idx) => (
                 <li
-                  key={item + Date.now()}
+                  key={idx}
                   className="cart__items--item"
                 >
-                  <Link underline="hover">{item}</Link>
+                  <Link underline="hover">{item.name}</Link>
                   <span
                     onClick={() => handleClose(item)}
                     className="cart__close"

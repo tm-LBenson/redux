@@ -11,6 +11,7 @@ import productsReducer from '../../store/productsReducer';
 import activeCategoriesReducer from '../../store/activeCategoryReducer';
 import { render } from '@testing-library/react';
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Products', () => {
   const reducers = combineReducers({
@@ -23,7 +24,9 @@ describe('Products', () => {
   test('renders without crashing', () => {
     render(
       <Provider store={store}>
+        <BrowserRouter>
         <Products />
+        </BrowserRouter>
       </Provider>,
     );
   });

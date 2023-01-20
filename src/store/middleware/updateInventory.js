@@ -4,11 +4,15 @@ import axios from 'axios';
 import { updateProdState } from '../productsReducer';
 
 export const updateProducts = (action, product) => async (dispatch) => {
-  if (action === 'DEC') product.inStock = product.inStock - 1;
-  if (action === 'INC') product.inStock = product.inStock + 1;
-  const { _id } = product;
+  let updatedProduct = { ...product }; // create a new object with the same properties as 'product'
+  if (action === 'DEC') {
+    updatedProduct.inStock = updatedProduct.inStock - 1;
+  } else if (action === 'INC') {
+    updatedProduct.inStock = updatedProduct.inStock + 1;
+  }
+  const { _id } = updatedProduct;
   let body = {
-    ...product,
+    ...updatedProduct,
   };
 
   const updated = await axios.put(
@@ -16,5 +20,5 @@ export const updateProducts = (action, product) => async (dispatch) => {
     body,
   );
 
-  dispatch(updateProdState(updated.data, 'UPDATE_PRODUCTS'));
+  dispatch(updateProdState(updated.data));
 };

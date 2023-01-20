@@ -1,27 +1,21 @@
 /** @format */
 
+import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = {
   activeCategory: null,
 };
 
-const categoriesReducer = (state = initialState, action) => {
-  const { type, category } = action;
-  switch (type) {
-    case 'CHANGE_CATEGORY':
-      return {
-        ...state,
-        activeCategory: category,
-      };
-    default:
-      return state;
-  }
-};
+const categoriesSlice = createSlice({
+  name: 'categories',
+  initialState,
+  reducers: {
+    changeCategory: (state, action) => {
+      state.activeCategory = action.payload;
+    },
+  },
+});
 
-export const changeCategory = (category) => {
-  return {
-    type: 'CHANGE_CATEGORY',
-    category,
-  };
-};
+export const { changeCategory } = categoriesSlice.actions;
 
-export default categoriesReducer;
+export default categoriesSlice.reducer;
