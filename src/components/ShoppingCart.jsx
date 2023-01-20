@@ -1,6 +1,6 @@
 /** @format */
 
-import { Card } from '@mui/material';
+import { Button, Card, TextField } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -39,79 +39,77 @@ function ShoppingCart() {
         </tbody>
       </table>
       <form className="shopping-cart__form">
-        <h3 className="shopping-cart__form-title">Billing Address</h3>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            Address:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
+        <div className="shopping-cart__block">
+          <h5 className="shopping-cart__form-title">Billing Address</h5>
+          <div className="shopping-cart__form-group">
+            <TextField
+              id="full-name"
+              label="Full Name"
+              variant="standard"
+              name="fullName"
+            />
+
+            <TextField
+              id="address"
+              label="Address"
+              variant="standard"
               name="address"
             />
-          </label>
-        </div>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            City:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
+
+            <TextField
+              id="city"
+              label="City"
+              variant="standard"
               name="city"
             />
-          </label>
-        </div>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            State:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
+
+            <TextField
+              id="state"
+              label="State"
+              variant="standard"
               name="state"
             />
-          </label>
-        </div>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            Zip:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
+
+            <TextField
+              id="zip"
+              label="Zip"
+              variant="standard"
               name="zip"
             />
-          </label>
+          </div>
         </div>
-        <h3>Credit Card</h3>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            Card Number:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
+        <div className="shopping-cart__block">
+          <h5>Payment Details</h5>
+          <div className="shopping-cart__form-group">
+            <TextField
+              id="ccnum"
+              label="Credit Card #"
+              variant="standard"
               name="cardNumber"
             />
-          </label>
-        </div>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            Expiration Date:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
-              name="expirationDate"
+
+            <TextField
+              id="exp"
+              variant="standard"
+              name="expiration"
+              type="date"
             />
-          </label>
-        </div>
-        <div className="shopping-cart__form-group">
-          <label className="shopping-cart__form-label">
-            CVV:
-            <input
-              className="shopping-cart__form-input"
-              type="text"
-              name="cvv"
+
+            <TextField
+              id="cvv"
+              label="CVV"
+              variant="standard"
+              name="cardNumber"
             />
-          </label>
+          </div>
         </div>
       </form>
+      <Button
+        className="shopping-cart__button"
+        variant="contained"
+      >
+        PLACE YOUR ORDER
+      </Button>
       {cart.length === 0 ? (
         <Navigate
           to="/"

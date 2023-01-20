@@ -1,10 +1,20 @@
 /** @format */
 
 .shopping-cart {
+  h5{
+    font-weight: 200;
+    width: 100%;
+    font-size: 1.8rem;
+  }
   max-width: 60rem;
   min-height: 55rem;
   margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   &__table {
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -23,9 +33,29 @@
     display: flex;
     justify-content: space-between;
     &--total {
+      margin-top: 2rem;
       display: flex;
       justify-content: flex-end;
       gap: 2rem;
     }
+  }
+
+  &__form {
+    display: flex;
+    &-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__block {
+    margin-right: 10rem;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  &__button {
+    margin: auto;
+    width: 30%;
   }
 }
