@@ -1,0 +1,31 @@
+/** @format */
+
+.shopping-cart {
+  max-width: 60rem;
+  min-height: 55rem;
+  margin: 5rem auto;
+  &__table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__table-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem;
+  }
+  &__table-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+  &__table-row {
+    display: flex;
+    justify-content: space-between;
+    &--total {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+  }
+}
