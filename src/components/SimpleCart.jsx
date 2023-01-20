@@ -13,9 +13,9 @@ export default function SimpleCart() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (count === 0) {
-      dispatch(showOrHide('SHOW_OR_HIDE', false));
+      dispatch(showOrHide(false));
     } else if (count > 0) {
-      dispatch(showOrHide('SHOW_OR_HIDE', true));
+      dispatch(showOrHide(true));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);

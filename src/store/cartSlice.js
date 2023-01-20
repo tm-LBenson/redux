@@ -27,7 +27,7 @@ const cartSlice = createSlice({
       state.count -= 1;
     },
     showOrHide: (state, action) => {
-      console.log(action.payload);
+  
       state.show = action.payload.showOrHide;
     },
   },

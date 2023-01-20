@@ -1,5 +1,8 @@
 <!-- @format -->
 
+# Project: Online Storefront Lab 39d49
+
+
 # Project: Online Storefront Lab 38d49
 
 [Deployment on Netlify](https://magnificent-naiad-9a3cf5.netlify.app)
@@ -7,7 +10,6 @@
 # Technical Requirements / Notes
 
 ![image](https://user-images.githubusercontent.com/105423307/213348623-f960f073-a149-40c9-8021-8500ef712d5c.png)
-
 
 In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
 
