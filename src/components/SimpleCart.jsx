@@ -8,8 +8,7 @@ import { removeFromCart, showOrHide } from '../store/cartSlice';
 import { updateProducts } from '../store/middleware/updateInventory';
 export default function SimpleCart() {
   const { count, cart, show } = useSelector((state) => state.cart);
-
-  console.log(show);
+  console.log(cart);
   const dispatch = useDispatch();
   useEffect(() => {
     if (count === 0) {
@@ -21,7 +20,7 @@ export default function SimpleCart() {
   }, [count]);
 
   const handleClose = (item) => {
-    dispatch(removeFromCart('REMOVE_FROM_CART', item));
+    dispatch(removeFromCart(item));
     dispatch(updateProducts('INC', item));
   };
   return (
@@ -33,13 +32,13 @@ export default function SimpleCart() {
         <div className="cart">
           <Paper className="cart__items">
             <ul>
-              <li>item</li>
-              {cart.map((item) => (
+              <li>Cart</li>
+              {cart.map((item, idx) => (
                 <li
-                  key={item + Date.now()}
+                  key={idx}
                   className="cart__items--item"
                 >
-                  <Link underline="hover">{item}</Link>
+                  <Link underline="hover">{item.name}</Link>
                   <span
                     onClick={() => handleClose(item)}
                     className="cart__close"

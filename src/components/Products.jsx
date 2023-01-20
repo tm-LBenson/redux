@@ -35,8 +35,7 @@ function Products() {
   );
 
   function handleAddItem(item) {
-    const { name } = item;
-    dispatch(addToCart(name));
+    dispatch(addToCart(item));
     dispatch(updateProducts('DEC', item));
   }
   return (

@@ -13,12 +13,11 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const { item } = action.payload;
-      if (state.cart.includes(item)) {
+      if (state.cart.includes(action.payload)) {
         return;
       }
 
-      state.cart.push(item);
+      state.cart.push(action.payload);
       state.count += 1;
     },
     removeFromCart: (state, action) => {
@@ -27,8 +26,7 @@ const cartSlice = createSlice({
       state.count -= 1;
     },
     showOrHide: (state, action) => {
-  
-      state.show = action.payload.showOrHide;
+      state.show = action.payload;
     },
   },
 });
