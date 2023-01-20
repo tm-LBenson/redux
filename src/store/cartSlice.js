@@ -21,10 +21,15 @@ const cartSlice = createSlice({
       state.count += 1;
     },
     removeFromCart: (state, action) => {
-      const { item } = action.payload;
-      state.cart = state.cart.filter((cartItem) => cartItem !== item);
-      state.count -= 1;
+      const itemIndex = state.cart.findIndex(
+        (cartItem) => cartItem.name === action.payload.name,
+      );
+      if (itemIndex !== -1) {
+        state.cart.splice(itemIndex, 1);
+        state.count -= 1;
+      }
     },
+
     showOrHide: (state, action) => {
       state.show = action.payload;
     },
