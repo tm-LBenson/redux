@@ -5,12 +5,15 @@ import { render, screen } from '@testing-library/react';
 import Header from '../Header';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Header component', () => {
   it('should render without crashing', () => {
     render(
       <Provider store={store}>
-        <Header />
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </Provider>,
     );
   });
@@ -18,7 +21,9 @@ describe('Header component', () => {
   it('should render the logo and cart button', () => {
     render(
       <Provider store={store}>
-        <Header />
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
       </Provider>,
     );
 

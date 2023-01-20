@@ -6,6 +6,7 @@ import cartSlice from '../../store/cartSlice';
 
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('SimpleCart Reducer', () => {
   const reducers = combineReducers({
@@ -15,7 +16,9 @@ describe('SimpleCart Reducer', () => {
   const store = createStore(reducers);
   render(
     <Provider store={store}>
-      <SimpleCart />
+      <BrowserRouter>
+        <SimpleCart />
+      </BrowserRouter>
     </Provider>,
   );
 

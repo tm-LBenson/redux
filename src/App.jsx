@@ -1,24 +1,24 @@
 /** @format */
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
+import StoreFront from './components/StoreFront';
 
 import './sass/main.scss';
 function App() {
   return (
     <>
+      <Header />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <Header />
               <Categories />
               <Products />
-              <Footer />
             </>
           }
         />
@@ -26,13 +26,20 @@ function App() {
           path="/cart"
           element={
             <>
-              <Header />
               <ShoppingCart />
-              <Footer />
+            </>
+          }
+        />
+        <Route
+          path=":itemId"
+          element={
+            <>
+              <StoreFront />
             </>
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }

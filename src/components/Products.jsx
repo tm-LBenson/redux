@@ -31,7 +31,7 @@ function Products() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
-  const activeProducts = products.filter(
+  const activeProducts = products.products.filter(
     (item) => item.category.toUpperCase() === activeCategory.activeCategory,
   );
 
