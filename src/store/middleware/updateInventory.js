@@ -20,5 +20,5 @@ export const updateProducts = (action, product) => async (dispatch) => {
     body,
   );
 
-  dispatch(updateProdState(updated.data, 'UPDATE_PRODUCTS'));
+  dispatch(updateProdState(updated.data));
 };

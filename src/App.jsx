@@ -1,9 +1,10 @@
 /** @format */
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Products from './components/Products';
+import ShoppingCart from './components/ShoppingCart';
 
 import './sass/main.scss';
 function App() {
@@ -17,6 +18,16 @@ function App() {
               <Header />
               <Categories />
               <Products />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <>
+              <Header />
+              <ShoppingCart />
               <Footer />
             </>
           }

@@ -9,6 +9,7 @@ import { getCategories } from '../store/middleware/categories';
 import { updateProducts } from '../store/middleware/updateInventory';
 import { getProducts } from '../store/middleware/products';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Products() {
   const { count, products, activeCategory } = useSelector((state) => state);
@@ -78,7 +79,7 @@ function Products() {
                         ADD TO CART
                       </ListItemButton>
                       <ListItemButton underline="none">
-                        VIEW DETAILS
+                        <Link to={item._id}>VIEW DETAILS</Link>
                       </ListItemButton>
                     </div>
                   </Card>

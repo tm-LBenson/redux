@@ -1,8 +1,9 @@
 /** @format */
 
-import { Link, ListItemButton, Paper } from '@mui/material';
+import { ListItemButton, Paper } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeFromCart, showOrHide } from '../store/cartSlice';
 
 import { updateProducts } from '../store/middleware/updateInventory';
@@ -26,7 +27,9 @@ export default function SimpleCart() {
   return (
     <>
       <div className="navbar__cart">
-        <ListItemButton data-testid="test-cart">Cart ({count})</ListItemButton>
+        <ListItemButton data-testid="test-cart">
+          <Link to="cart">Cart ({count})</Link>
+        </ListItemButton>
       </div>
       {count && show ? (
         <div className="cart">
