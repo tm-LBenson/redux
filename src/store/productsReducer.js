@@ -1,32 +1,22 @@
 /** @format */
 
+import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = [];
 
-const productsReducer = (state = initialState, action) => {
-  const { type, data } = action;
-  switch (type) {
-    case 'SET_PRODUCTS':
- 
-      return data;
-    case 'UPDATE_PRODUCTS':
-      return [...state];
-    default:
-      return state;
-  }
-};
+const productsSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    setProducts: (state, action) => {
+      return [...action.payload];
+    },
+    updateProdState: (state, action) => {
+      // state.splice(0, state.length, ...action.payload);
+    },
+  },
+});
 
-export default productsReducer;
+export const { setProducts, updateProdState } = productsSlice.actions;
 
-export const setProducts = (data, type) => {
-  return {
-    type,
-    data,
-  };
-};
-
-export const updateProdState = (data, type) => {
-  return {
-    type,
-    data,
-  };
-};
+export default productsSlice.reducer;

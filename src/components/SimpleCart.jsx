@@ -3,23 +3,25 @@
 import { Link, ListItemButton, Paper } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCart } from '../store/cartReducer';
-import { showCart } from '../store/cartReducer';
+import { removeFromCart, showOrHide } from '../store/cartSlice';
+
 import { updateProducts } from '../store/middleware/updateInventory';
 export default function SimpleCart() {
-  const { count, show, cart } = useSelector((state) => state.cart);
+  const { count, cart, show } = useSelector((state) => state.cart);
+
+  console.log(show);
   const dispatch = useDispatch();
   useEffect(() => {
     if (count === 0) {
-      dispatch(showCart('SHOW_OR_HIDE', false));
+      dispatch(showOrHide('SHOW_OR_HIDE', false));
     } else if (count > 0) {
-      dispatch(showCart('SHOW_OR_HIDE', true));
+      dispatch(showOrHide('SHOW_OR_HIDE', true));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   const handleClose = (item) => {
-    dispatch(updateCart('REMOVE_FROM_CART', item));
+    dispatch(removeFromCart('REMOVE_FROM_CART', item));
     dispatch(updateProducts('INC', item));
   };
   return (
