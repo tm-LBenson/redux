@@ -4,6 +4,9 @@
 
 ## Technical Requirements / Notes
 
+![image](https://user-images.githubusercontent.com/105423307/213625414-64ebd350-1951-490e-af9b-ed8424c050fb.png)
+
+
 In page 4, we refactored the code to use the Redux-Toolkit. We added more functionality and brought in BrowserRouter to handle switching between the cart and the index.
 
 ## Checklist
