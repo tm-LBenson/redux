@@ -2,12 +2,15 @@
 
 # Project: Online Storefront Lab 39d49
 
+## Technical Requirements / Notes
+
+In page 4, we refactored the code to use the Redux-Toolkit. We added more functionality and brought in BrowserRouter to handle switching between the cart and the index.
 
 # Project: Online Storefront Lab 38d49
 
 [Deployment on Netlify](https://magnificent-naiad-9a3cf5.netlify.app)
 
-# Technical Requirements / Notes
+## Technical Requirements / Notes
 
 ![image](https://user-images.githubusercontent.com/105423307/213348623-f960f073-a149-40c9-8021-8500ef712d5c.png)
 

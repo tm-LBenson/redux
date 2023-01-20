@@ -9,7 +9,7 @@ import store from '../../store/store';
 describe('Header component', () => {
   it('should render without crashing', () => {
     render(
-      <Provider store={store()}>
+      <Provider store={store}>
         <Header />
       </Provider>,
     );
@@ -17,7 +17,7 @@ describe('Header component', () => {
 
   it('should render the logo and cart button', () => {
     render(
-      <Provider store={store()}>
+      <Provider store={store}>
         <Header />
       </Provider>,
     );
