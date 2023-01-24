@@ -1,7 +1,7 @@
 <!-- @format -->
 
 # Project: Online Storefront Lab 39d49
-
+[Deployment on Netlify](https://genuine-khapse-8d3243.netlify.app/)
 ## Technical Requirements / Notes
 
 
